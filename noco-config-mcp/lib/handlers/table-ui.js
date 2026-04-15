@@ -190,6 +190,7 @@ async function createUI(args) {
     // 数字类型字段默认可排序
     if (SORTABLE_INTERFACES.has(f.interface)) {
       colStepParams.tableColumnSettings.sortable = true;
+      colStepParams.tableColumnSettings.sorter = { sorter: true };
     }
     const colRes2 = await createAndAttach(colModelUid, 'TableColumnModel', tableModelUid, 'columns', 'array', colIdx, colStepParams);
     if (colRes2.error) {

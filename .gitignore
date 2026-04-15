@@ -23,7 +23,7 @@ skills/nocobase-workflow-manage
 /noco-config-mcp/test-*.js
 # Diagnostic reports (https://nodejs.org/api/report.html)
 report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
-
+/bak/
 # Runtime data
 pids
 *.pid
