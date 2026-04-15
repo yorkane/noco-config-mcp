@@ -523,7 +523,7 @@ TOKEN="<admin_session_token>"
 # 认证
 curl -s -X POST "$API/auth:signIn" \
   -H "Content-Type: application/json" \
-  -d '{"email":"admin@nocobase.com","password":"admin123"}'
+  -d '{"email":"<ADMIN_EMAIL>","password":"<ADMIN_PASSWORD>"}'
 
 # 创建集合
 curl -s -X POST "$API/collections:create" \

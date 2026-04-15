@@ -6,7 +6,7 @@ import { getToken, ensureToken } from './api.js';
  * Start a reverse-proxy HTTP server that injects Bearer token into every request.
  *
  * @param {number} port       - Local port to listen on (e.g. 13001)
- * @param {string} backendUrl - Full backend base URL (e.g. http://192.168.1.28:13000)
+ * @param {string} backendUrl - Full backend base URL (e.g. http://localhost:13000)
  * @returns {Promise<http.Server>}
  */
 export function startProxy(port, backendUrl) {

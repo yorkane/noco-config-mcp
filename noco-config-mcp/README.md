@@ -29,17 +29,17 @@ NocoBase 配置 MCP Server，通过标准 MCP 协议暴露 NocoBase REST API 操
       "command": "docker",
       "args": [
         "run", "--rm", "--network", "host", "-i",
-        "wasu-wtvdev-registry-test-registry.cn-hangzhou.cr.aliyuncs.com/pub/noco-config-mcp:latest",
-        "http://192.168.1.28:13000",
-        "admin@nocobase.com",
-        "noco@D807"
+        "your-registry/noco-config-mcp:latest",
+        "http://<NOCOBASE_HOST>:13000",
+        "<ADMIN_EMAIL>",
+        "<ADMIN_PASSWORD>"
       ]
     }
   }
 }
 ```
 
-> 也可挂载本地代码运行（开发调试用）：将 `noco-config-mcp:latest` 替换为 `-v /code/noco/noco-config-mcp:/app -w /app node:24-slim node index.js`
+> 也可挂载本地代码运行（开发调试用）：将镜像名替换为 `-v /path/to/noco-config-mcp:/app -w /app node:24-slim node index.js`
 
 ### Claude Desktop
 
@@ -52,7 +52,7 @@ NocoBase 配置 MCP Server，通过标准 MCP 协议暴露 NocoBase REST API 操
 cd noco-config-mcp && npm install
 
 # 启动（stdin/stdout MCP 协议）
-node index.js http://192.168.1.28:13000 admin@nocobase.com noco@D807
+node index.js http://<NOCOBASE_HOST>:13000 <ADMIN_EMAIL> <ADMIN_PASSWORD>
 ```
 
 命令行参数：`node index.js <base_url> <email> <password>`
@@ -92,10 +92,10 @@ noco-config-mcp/
 ```bash
 # 挂载本地代码运行（开发/调试）
 docker run --rm --network host -i \
-  -v /code/noco/noco-config-mcp:/app \
-  -e NOCO_BASE_URL=http://192.168.1.28:13000 \
-  -e NOCO_EMAIL=admin@nocobase.com \
-  -e NOCO_PASSWORD='noco@D807' \
+  -v /path/to/noco-config-mcp:/app \
+  -e NOCO_BASE_URL=http://<NOCOBASE_HOST>:13000 \
+  -e NOCO_EMAIL=<ADMIN_EMAIL> \
+  -e NOCO_PASSWORD='<ADMIN_PASSWORD>' \
   -e NOCO_PROXY_PORT=13001 \
   -w /app \
   node:24-slim \

@@ -49,8 +49,8 @@ description: >-
 
 | 项目 | 值 |
 |---|---|
-| Base URL | `http://192.168.1.28:13000` |
-| 版本 | NocoBase v2.0.36 |
+| Base URL | `http://<NOCOBASE_HOST>:13000` |
+| 版本 | NocoBase v2.x |
 | API | `uiSchemas:*` + `desktopRoutes:*` + `collections:*` |
 | 认证 | `POST /api/auth:signIn` → Bearer token |
 

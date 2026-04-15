@@ -18,13 +18,13 @@
 
 ```bash
 # 快速获取 Token
-TOKEN=$(curl -s -X POST http://192.168.1.28:13000/api/auth:signIn \
+TOKEN=$(curl -s -X POST http://<NOCOBASE_HOST>:13000/api/auth:signIn \
   -H 'Content-Type: application/json' \
-  -d '{"email":"admin@nocobase.com","password":"noco@D807"}' \
+  -d '{"email":"<ADMIN_EMAIL>","password":"<ADMIN_PASSWORD>"}' \
   | python3 -c "import sys,json; print(json.load(sys.stdin)['data']['token'])")
 
 # 验证连接
-curl -s http://192.168.1.28:13000/api/app:getInfo -H "Authorization: Bearer $TOKEN" | python3 -c "import sys,json; print(json.load(sys.stdin)['data']['version'])"
+curl -s http://<NOCOBASE_HOST>:13000/api/app:getInfo -H "Authorization: Bearer $TOKEN" | python3 -c "import sys,json; print(json.load(sys.stdin)['data']['version'])"
 ```
 
 ---
@@ -34,7 +34,7 @@ curl -s http://192.168.1.28:13000/api/app:getInfo -H "Authorization: Bearer $TOK
 ### 2.1 查询所有用户数据表
 
 ```bash
-curl -s "http://192.168.1.28:13000/api/collections:list?pageSize=200" \
+curl -s "http://<NOCOBASE_HOST>:13000/api/collections:list?pageSize=200" \
   -H "Authorization: Bearer $TOKEN" | python3 -c "
 import sys, json
 data = json.load(sys.stdin)['data']
@@ -95,12 +95,12 @@ for c in data:
 
 ```bash
 # 查看现有分组
-curl -s "http://192.168.1.28:13000/api/desktopRoutes:listAccessible?tree=true" \
+curl -s "http://<NOCOBASE_HOST>:13000/api/desktopRoutes:listAccessible?tree=true" \
   -H "Authorization: Bearer $TOKEN"
 
 # 如果分组已存在 → 获取 groupId
 # 如果分组不存在 → 创建
-curl -s -X POST http://192.168.1.28:13000/api/desktopRoutes:create \
+curl -s -X POST http://<NOCOBASE_HOST>:13000/api/desktopRoutes:create \
   -H "Authorization: Bearer $TOKEN" \
   -H "Content-Type: application/json" \
   -d '{"title":"分组名","type":"group","sort":100}'
@@ -155,7 +155,7 @@ TABLE_BLOCK_UID=$(python3 -c "import secrets; print(secrets.token_urlsafe(8))")
 # ... 为每个节点生成 uid
 
 # 提交 schema（参考 schema-templates.md 的完整页面示例）
-curl -s -X POST http://192.168.1.28:13000/api/uiSchemas:insertAdjacent \
+curl -s -X POST http://<NOCOBASE_HOST>:13000/api/uiSchemas:insertAdjacent \
   -H "Authorization: Bearer $TOKEN" \
   -H "Content-Type: application/json" \
   -d @- << 'EOF'
@@ -170,7 +170,7 @@ EOF
 **第二步：创建路由**
 
 ```bash
-curl -s -X POST http://192.168.1.28:13000/api/desktopRoutes:create \
+curl -s -X POST http://<NOCOBASE_HOST>:13000/api/desktopRoutes:create \
   -H "Authorization: Bearer $TOKEN" \
   -H "Content-Type: application/json" \
   -d "{\"title\":\"页面标题\",\"type\":\"flowPage\",\"schemaUid\":\"$ROOT_UID\",\"parentId\":$GROUP_ID}"

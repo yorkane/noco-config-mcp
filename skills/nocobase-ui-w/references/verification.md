@@ -45,7 +45,7 @@
 TOKEN=$(...)
 
 echo "=== 菜单树 ==="
-curl -s "http://192.168.1.28:13000/api/desktopRoutes:listAccessible?tree=true" \
+curl -s "http://<NOCOBASE_HOST>:13000/api/desktopRoutes:listAccessible?tree=true" \
   -H "Authorization: Bearer $TOKEN" | python3 -c "
 import sys, json
 data = json.load(sys.stdin)['data']
@@ -60,7 +60,7 @@ echo "=== 逐页 Schema 验证 ==="
 # 对每个 schemaUid 执行 getJsonSchema 并检查关键节点
 for uid in <所有页面的schemaUid>; do
   echo "--- $uid ---"
-  curl -s "http://192.168.1.28:13000/api/uiSchemas:getJsonSchema/$uid" \
+  curl -s "http://<NOCOBASE_HOST>:13000/api/uiSchemas:getJsonSchema/$uid" \
     -H "Authorization: Bearer $TOKEN" | python3 -c "
 import sys, json
 d = json.load(sys.stdin)
@@ -84,7 +84,7 @@ done
 
 ```bash
 # 对每个 collection 测试 list API
-curl -s "http://192.168.1.28:13000/api/<collection_name>:list?pageSize=5" \
+curl -s "http://<NOCOBASE_HOST>:13000/api/<collection_name>:list?pageSize=5" \
   -H "Authorization: Bearer $TOKEN"
 ```
 

@@ -22,8 +22,8 @@ POST /api/auth:signIn
 Content-Type: application/json
 
 {
-  "email": "admin@nocobase.com",
-  "password": "noco@D807"
+  "email": "<ADMIN_EMAIL>",
+  "password": "<ADMIN_PASSWORD>"
 }
 ```
 
@@ -44,9 +44,9 @@ Authorization: Bearer <session_token>
 
 **获取 Token 的快捷命令：**
 ```bash
-TOKEN=$(curl -s -X POST http://192.168.1.28:13000/api/auth:signIn \
+TOKEN=$(curl -s -X POST http://<NOCOBASE_HOST>:13000/api/auth:signIn \
   -H 'Content-Type: application/json' \
-  -d '{"email":"admin@nocobase.com","password":"noco@D807"}' \
+  -d '{"email":"<ADMIN_EMAIL>","password":"<ADMIN_PASSWORD>"}' \
   | python3 -c "import sys,json; print(json.load(sys.stdin)['data']['token'])")
 ```
 

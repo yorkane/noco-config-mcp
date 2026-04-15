@@ -1,15 +1,15 @@
 services:
   app:
-    image: nocobase/nocobase:2.0.36-full
+    image: nocobase/nocobase:latest-full
     restart: always
     environment:
-      - APP_KEY=e36e9e0581de5c6a44a1233a2819aa69cd4d1d651c02c94385beb27e935b2693
+      - APP_KEY=${APP_KEY:-please-generate-with-openssl-rand-hex-32}
       - DB_DIALECT=postgres
-      - DB_HOST=192.168.1.31
-      - DB_PORT=5432
-      - DB_DATABASE=nocobase_v2036
-      - DB_USER=postgres
-      - DB_PASSWORD=Wasu@3.14
+      - DB_HOST=${DB_HOST:-your-db-host}
+      - DB_PORT=${DB_PORT:-5432}
+      - DB_DATABASE=${DB_DATABASE:-nocobase}
+      - DB_USER=${DB_USER:-nocobase}
+      - DB_PASSWORD=${DB_PASSWORD:-changeme}
       - TZ=Asia/Shanghai
     volumes:
       - ./storage:/app/nocobase/storage

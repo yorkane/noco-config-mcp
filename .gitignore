@@ -21,9 +21,15 @@ skills/nocobase-workflow-manage
 /*.png
 .codebuddy/
 /noco-config-mcp/test-*.js
+noco-setup-result.md
+mcp-config.json
+noco-install-personal.md
 # Diagnostic reports (https://nodejs.org/api/report.html)
 report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
 /bak/
+noco-setup-result.md
+mcp-config.json
+noco-install-personal.md
 # Runtime data
 pids
 *.pid
