@@ -5,7 +5,22 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 lerna-debug.log*
-
+.playwright*/
+storage/
+nocobase/
+.png
+auto-accept
+skills/nocobase-acl-manage
+skills/nocobase-data-modeling
+skills/nocobase-install-start
+skills/nocobase-ui-builder
+skills/nocobase-mcp-setup
+skills/nocobase-data-analysis
+skills/nocobase-utils
+skills/nocobase-workflow-manage
+/*.png
+.codebuddy/
+/noco-config-mcp/test-*.js
 # Diagnostic reports (https://nodejs.org/api/report.html)
 report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
 

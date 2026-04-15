@@ -1,0 +1,10 @@
+interface:
+  display_name: "NocoBase 通用 UI 构建器"
+  short_description: "为 NocoBase 数据表自动创建分组和列表页面"
+  default_prompt: "使用 $nocobase-ui-w 为 NocoBase 中的数据表自动发现、分组并创建 UI 页面。支持检查、创建、修改、删除菜单分组和页面。"
+
+dependencies:
+  tools: []
+
+policy:
+  allow_implicit_invocation: true

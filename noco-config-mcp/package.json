@@ -1,0 +1,13 @@
+{
+  "name": "noco-config-mcp",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "NocoBase MCP Server for basic configuration: collections, fields, records, routes, schemas, and one-click table UI",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.12.1"
+  }
+}
